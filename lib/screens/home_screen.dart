@@ -15,10 +15,34 @@ class HomeScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        actions: [],
+        actions: [
+          GestureDetector(
+            child: Image.asset(
+              'assets/icons/add.png',
+              scale: 2.2,
+            ),
+          ),
+          GestureDetector(
+            child: Image.asset(
+              'assets/icons/favorite.png',
+              scale: 1,
+            ),
+          ),
+          GestureDetector(
+            child: Image.asset(
+              'assets/icons/message.png',
+              scale: 1,
+            ),
+          ),
+        ],
       ),
       body: ListView(
-        children: [],
+        children: [
+          Container(
+            height: 60,
+            color: Colors.purple,
+          )
+        ],
       ),
     );
   }

@@ -3,7 +3,8 @@ import './screens/home_screen.dart';
 
 void main() {
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
-    home: HomeScreen(),
+    home: const HomeScreen(),
   ));
 }
