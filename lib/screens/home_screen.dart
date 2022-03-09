@@ -7,9 +7,19 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Instagram'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: const Text(
+          'Instagram',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
+        actions: [],
       ),
-      body: ListView(),
+      body: ListView(
+        children: [],
+      ),
     );
   }
 }
