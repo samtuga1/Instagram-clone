@@ -21,15 +21,14 @@ class StoryItem extends StatelessWidget {
         children: [
           Stack(children: [
             OutlineGradientButton(
-              onTap: () {
-                Navigator.of(context)
-                    .pushNamed(StoryScreen.id, arguments: images);
-              },
-              child: const SizedBox(
+              child: SizedBox(
                 height: 50,
                 width: 50,
                 child: Center(
-                  child: Text('hi'),
+                  child: CircleAvatar(
+                    radius: 21.2,
+                    backgroundImage: NetworkImage(profileImageUrl),
+                  ),
                 ),
               ),
               gradient: const LinearGradient(
@@ -42,17 +41,16 @@ class StoryItem extends StatelessWidget {
               radius: const Radius.circular(35),
             ),
             Positioned(
-              top: 3.4,
-              left: 3.7,
-              child: Container(
-                height: 43,
-                width: 43,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: NetworkImage(profileImageUrl),
-                  ),
-                ),
+              top: 5,
+              left: 5.3,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushNamed(StoryScreen.id, arguments: images);
+                },
+                // child: CircleAvatar(
+                //   backgroundImage: NetworkImage(profileImageUrl),
+                // ),
               ),
             )
           ]),
