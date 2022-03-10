@@ -44,25 +44,36 @@ class _StoryScreenState extends State<StoryScreen> {
           }
         }
       });
-      // if (percentWatched[_currentImage] + 0.01 < 1) {
-      //   setState(() {
-      //     percentWatched[_currentImage] += 0.01;
-      //   });
-      // } else {
-      //   setState(() {
-      //     _currentImage++;
-      //   });
-      // }
-      // if (_currentImage == images.length) {
-      //   Navigator.pop(context);
-      //   timer.cancel();
-      // }
     });
+  }
+
+  void _onTapDown(TapDownDetails details) {
+    final double sreenWidth = MediaQuery.of(context).size.width;
+    final double dx = details.globalPosition.dx;
+    if (dx < sreenWidth / 2) {
+      setState(() {
+        if (_currentImageIndex > 0) {
+          percentWatched[_currentImageIndex - 1] = 0;
+          percentWatched[_currentImageIndex] = 0;
+          _currentImageIndex--;
+        }
+      });
+    } else {
+      setState(() {
+        if (_currentImageIndex < images.length - 1) {
+          percentWatched[_currentImageIndex] = 1;
+          _currentImageIndex++;
+        } else {
+          percentWatched[_currentImageIndex] = 1;
+        }
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTapDown: (details) => _onTapDown(details),
       child: Scaffold(
         body: Stack(children: [
           Column(
