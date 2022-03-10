@@ -48,9 +48,6 @@ class StoryItem extends StatelessWidget {
                   Navigator.of(context)
                       .pushNamed(StoryScreen.id, arguments: images);
                 },
-                // child: CircleAvatar(
-                //   backgroundImage: NetworkImage(profileImageUrl),
-                // ),
               ),
             )
           ]),

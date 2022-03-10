@@ -14,7 +14,7 @@ class StoryScreen extends StatefulWidget {
 }
 
 class _StoryScreenState extends State<StoryScreen> {
-  var _currentImage = 0;
+  var _currentImageIndex = 0;
   List<double> percentWatched = [];
   late List<String> images;
   @override
@@ -29,49 +29,66 @@ class _StoryScreenState extends State<StoryScreen> {
 
   void _startWatching() {
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
-      if (percentWatched[_currentImage] + 0.01 < 1) {
-        setState(() {
-          percentWatched[_currentImage] += 0.01;
-        });
-      } else {
-        setState(() {
-          _currentImage++;
-        });
-      }
-      if (_currentImage == images.length) {
-        timer.cancel();
-        Navigator.pop(context);
-      }
+      setState(() {
+        if (percentWatched[_currentImageIndex] + 0.01 < 1) {
+          percentWatched[_currentImageIndex] += 0.01;
+        } else {
+          percentWatched[_currentImageIndex] = 1;
+          timer.cancel();
+
+          if (_currentImageIndex < images.length - 1) {
+            _currentImageIndex++;
+            _startWatching();
+          } else {
+            Navigator.pop(context);
+          }
+        }
+      });
+      // if (percentWatched[_currentImage] + 0.01 < 1) {
+      //   setState(() {
+      //     percentWatched[_currentImage] += 0.01;
+      //   });
+      // } else {
+      //   setState(() {
+      //     _currentImage++;
+      //   });
+      // }
+      // if (_currentImage == images.length) {
+      //   Navigator.pop(context);
+      //   timer.cancel();
+      // }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(children: [
-        Column(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Image.network(
-                  images[_currentImage],
-                  fit: BoxFit.cover,
+    return GestureDetector(
+      child: Scaffold(
+        body: Stack(children: [
+          Column(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Image.network(
+                    images[_currentImageIndex],
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              height: 30,
-              color: Colors.purple,
-            )
-          ],
-        ),
-        StoryBars(
-          percentWatchedList: percentWatched,
-        ),
-      ]),
+              Container(
+                height: 30,
+                color: Colors.purple,
+              )
+            ],
+          ),
+          StoryBars(
+            percentWatchedList: percentWatched,
+          ),
+        ]),
+      ),
     );
   }
 }
