@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/stories_grid.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -37,11 +38,12 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: [
-          Container(
-            height: 60,
-            color: Colors.purple,
-          )
+        children: const [
+          SizedBox(
+            height: 90,
+            child: StoriesGrid(),
+          ),
+          Divider()
         ],
       ),
     );
