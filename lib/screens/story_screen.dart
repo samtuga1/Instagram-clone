@@ -52,6 +52,9 @@ class _StoryScreenState extends State<StoryScreen> {
     final double dx = details.globalPosition.dx;
     if (dx < sreenWidth / 2) {
       setState(() {
+        if (_currentImageIndex == 0) {
+          percentWatched[_currentImageIndex] = 0;
+        }
         if (_currentImageIndex > 0) {
           percentWatched[_currentImageIndex - 1] = 0;
           percentWatched[_currentImageIndex] = 0;

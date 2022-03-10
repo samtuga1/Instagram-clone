@@ -38,12 +38,11 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: ListView(
-        children: const [
+        children: [
           SizedBox(
-            height: 90,
+            height: 88,
             child: StoriesGrid(),
           ),
-          Divider()
         ],
       ),
     );
