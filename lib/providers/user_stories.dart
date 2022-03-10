@@ -17,7 +17,7 @@ class UserStory {
 class UserStories with ChangeNotifier {
   final List<UserStory> _stories = [
     UserStory(
-      id: DateTime.now().toString(),
+      id: 'm1',
       title: 'Samuel',
       profileImage:
           'https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg',
@@ -27,7 +27,7 @@ class UserStories with ChangeNotifier {
       ],
     ),
     UserStory(
-      id: DateTime.now().toString(),
+      id: 'm2',
       title: 'Bentil',
       profileImage:
           'https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg',
@@ -37,7 +37,7 @@ class UserStories with ChangeNotifier {
       ],
     ),
     UserStory(
-      id: DateTime.now().toString(),
+      id: 'm3',
       title: 'Kelvin',
       profileImage:
           'https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg',
@@ -47,7 +47,7 @@ class UserStories with ChangeNotifier {
       ],
     ),
     UserStory(
-      id: DateTime.now().toString(),
+      id: 'm4',
       title: 'Adelaide',
       profileImage:
           'https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg',

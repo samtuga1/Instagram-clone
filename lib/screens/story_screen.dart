@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:instagram_clone/providers/user_stories.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/widgets/story_bars.dart';
 
@@ -17,9 +18,16 @@ class _StoryScreenState extends State<StoryScreen> {
   var _currentImageIndex = 0;
   List<double> percentWatched = [];
   late List<String> images;
+  late UserStory story;
+  late Timer time;
+
   @override
   void didChangeDependencies() {
-    images = ModalRoute.of(context)?.settings.arguments as List<String>;
+    final storyId = ModalRoute.of(context)?.settings.arguments as String;
+    story = Provider.of<UserStories>(context)
+        .stories
+        .firstWhere((story) => story.id == storyId);
+    images = story.images;
     for (int i = 0; i < images.length; i++) {
       percentWatched.add(0);
     }
@@ -29,12 +37,13 @@ class _StoryScreenState extends State<StoryScreen> {
 
   void _startWatching() {
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
+      time = timer;
       setState(() {
         if (percentWatched[_currentImageIndex] + 0.01 < 1) {
           percentWatched[_currentImageIndex] += 0.01;
         } else {
           percentWatched[_currentImageIndex] = 1;
-          timer.cancel();
+          time.cancel();
 
           if (_currentImageIndex < images.length - 1) {
             _currentImageIndex++;
@@ -74,32 +83,141 @@ class _StoryScreenState extends State<StoryScreen> {
   }
 
   @override
+  void dispose() {
+    time.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTapDown: (details) => _onTapDown(details),
       child: Scaffold(
+        backgroundColor: Colors.black,
         body: Stack(children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Image.network(
-                    images[_currentImageIndex],
-                    fit: BoxFit.cover,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 18),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(7),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(7),
+                      child: Image.network(
+                        images[_currentImageIndex],
+                        fit: BoxFit.fitHeight,
+                      ),
+                    ),
                   ),
                 ),
               ),
               Container(
-                height: 30,
-                color: Colors.purple,
+                margin: const EdgeInsets.only(bottom: 20),
+                child: Row(children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 20, left: 20),
+                      height: 35,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          labelStyle: const TextStyle(color: Colors.white),
+                          labelText: 'Send message',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 0.7),
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                                color: Colors.white, width: 0.7),
+                            borderRadius: BorderRadius.circular(25.0),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.favorite_outline,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  Icon(
+                    Icons.message_outlined,
+                    color: Colors.white,
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  )
+                ]),
               )
             ],
           ),
-          StoryBars(
-            percentWatchedList: percentWatched,
+          Column(
+            children: [
+              StoryBars(
+                percentWatchedList: percentWatched,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
+                child: Row(
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: NetworkImage(story.profileImage),
+                        ),
+                        const SizedBox(
+                          width: 6,
+                        ),
+                        Text(
+                          story.title,
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 6,
+                        ),
+                        Text(
+                          '23h',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Spacer(),
+                    Row(
+                      children: [
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.more_horiz,
+                          ),
+                        ),
+                        IconButton(
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.close,
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ],
           ),
         ]),
       ),

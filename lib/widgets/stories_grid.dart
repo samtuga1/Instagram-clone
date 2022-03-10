@@ -14,6 +14,7 @@ class StoriesGrid extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: storiesData.stories.length,
       itemBuilder: (context, i) => StoryItem(
+        id: stories[i].id,
         images: stories[i].images,
         profileImageUrl: stories[i].profileImage,
         name: stories[i].title,

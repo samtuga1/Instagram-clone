@@ -3,11 +3,13 @@ import '../screens/story_screen.dart';
 import 'package:outline_gradient_button/outline_gradient_button.dart';
 
 class StoryItem extends StatelessWidget {
+  final String id;
   final String profileImageUrl;
   final String name;
   final List<String> images;
   const StoryItem({
     Key? key,
+    required this.id,
     required this.images,
     required this.profileImageUrl,
     required this.name,
@@ -21,8 +23,7 @@ class StoryItem extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.of(context)
-                  .pushNamed(StoryScreen.id, arguments: images);
+              Navigator.of(context).pushNamed(StoryScreen.id, arguments: id);
             },
             child: OutlineGradientButton(
               child: SizedBox(
