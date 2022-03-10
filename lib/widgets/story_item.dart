@@ -19,8 +19,12 @@ class StoryItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
       child: Column(
         children: [
-          Stack(children: [
-            OutlineGradientButton(
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .pushNamed(StoryScreen.id, arguments: images);
+            },
+            child: OutlineGradientButton(
               child: SizedBox(
                 height: 50,
                 width: 50,
@@ -40,17 +44,7 @@ class StoryItem extends StatelessWidget {
               padding: EdgeInsets.zero,
               radius: const Radius.circular(35),
             ),
-            Positioned(
-              top: 5,
-              left: 5.3,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context)
-                      .pushNamed(StoryScreen.id, arguments: images);
-                },
-              ),
-            )
-          ]),
+          ),
           const SizedBox(
             height: 5,
           ),
