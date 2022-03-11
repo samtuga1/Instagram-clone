@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
           GestureDetector(
             child: Image.asset(
               'assets/icons/add.png',
-              scale: 2.2,
+              scale: 2.4,
             ),
           ),
           GestureDetector(
