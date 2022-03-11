@@ -21,13 +21,14 @@ class _StoryScreenState extends State<StoryScreen> {
   late UserStory story;
   late Timer time;
 
+  //This is where my story timer starts to render(In didChangeDependencies which builds just after initState builds)
   @override
   void didChangeDependencies() {
-    final storyId = ModalRoute.of(context)?.settings.arguments as String;
-    story = Provider.of<UserStories>(context)
-        .stories
-        .firstWhere((story) => story.id == storyId);
+    final storyId = ModalRoute.of(context)?.settings.arguments
+        as String; //Fetches the id from StoryItem.dart
+    story = Provider.of<UserStories>(context).findById(storyId);
     images = story.images;
+
     for (int i = 0; i < images.length; i++) {
       percentWatched.add(0);
     }
@@ -35,6 +36,7 @@ class _StoryScreenState extends State<StoryScreen> {
     _startWatching();
   }
 
+  //This method manages the processes of the timer
   void _startWatching() {
     Timer.periodic(const Duration(milliseconds: 50), (timer) {
       time = timer;
@@ -56,6 +58,7 @@ class _StoryScreenState extends State<StoryScreen> {
     });
   }
 
+  // This method is what manages the area of the screen I tap on the screen to navigate my stories
   void _onTapDown(TapDownDetails details) {
     final double sreenWidth = MediaQuery.of(context).size.width;
     final double dx = details.globalPosition.dx;
