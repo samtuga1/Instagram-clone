@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/providers/user_stories.dart';
-import 'package:instagram_clone/screens/story_screen.dart';
+import './providers/user_stories.dart';
+import './screens/story_screen.dart';
 import 'package:provider/provider.dart';
 import './screens/home_screen.dart';
 

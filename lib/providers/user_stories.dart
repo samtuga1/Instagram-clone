@@ -66,4 +66,8 @@ class UserStories with ChangeNotifier {
     _stories[currentImage++];
     notifyListeners();
   }
+
+  UserStory findById(id) {
+    return _stories.firstWhere((story) => id == story.id);
+  }
 }
