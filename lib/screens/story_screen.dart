@@ -85,6 +85,14 @@ class _StoryScreenState extends State<StoryScreen> {
     }
   }
 
+  bool watchedLastStory() {
+    if (_currentImageIndex == images.length) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   void dispose() {
     time.cancel();
@@ -210,7 +218,7 @@ class _StoryScreenState extends State<StoryScreen> {
                         IconButton(
                           color: Colors.white,
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.of(context).pop(watchedLastStory());
                           },
                           icon: Icon(
                             Icons.close,
