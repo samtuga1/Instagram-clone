@@ -3,6 +3,7 @@ import 'package:instagram_clone/providers/user_stories.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/widgets/story_bars.dart';
+import '../widgets/story_screen_textfield.dart';
 
 class StoryScreen extends StatefulWidget {
   static const id = '/story_screen';
@@ -86,7 +87,7 @@ class _StoryScreenState extends State<StoryScreen> {
   }
 
   bool watchedLastStory() {
-    if (_currentImageIndex == images.length) {
+    if (_currentImageIndex == images.length - 1) {
       return true;
     } else {
       return false;
@@ -127,47 +128,7 @@ class _StoryScreenState extends State<StoryScreen> {
                   ),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(bottom: 20),
-                child: Row(children: [
-                  Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.only(right: 20, left: 20),
-                      height: 35,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          labelStyle: const TextStyle(color: Colors.white),
-                          labelText: 'Send message',
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Colors.white, width: 0.7),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                                color: Colors.white, width: 0.7),
-                            borderRadius: BorderRadius.circular(25.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Icon(
-                    Icons.favorite_outline,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  Icon(
-                    Icons.message_outlined,
-                    color: Colors.white,
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  )
-                ]),
-              )
+              const StoryScreenTextField()
             ],
           ),
           Column(
@@ -190,14 +151,14 @@ class _StoryScreenState extends State<StoryScreen> {
                         ),
                         Text(
                           story.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           ),
                         ),
                         const SizedBox(
                           width: 6,
                         ),
-                        Text(
+                        const Text(
                           '23h',
                           style: TextStyle(
                             color: Colors.white,
@@ -211,7 +172,7 @@ class _StoryScreenState extends State<StoryScreen> {
                         IconButton(
                           color: Colors.white,
                           onPressed: () {},
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.more_horiz,
                           ),
                         ),
@@ -220,7 +181,7 @@ class _StoryScreenState extends State<StoryScreen> {
                           onPressed: () {
                             Navigator.of(context).pop(watchedLastStory());
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.close,
                           ),
                         )
