@@ -8,16 +8,12 @@ class StoriesGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final storiesData = Provider.of<UserStories>(context);
-    final stories = storiesData.stories;
+    final storiesData = Provider.of<UserStories>(context).stories;
     return ListView.builder(
       scrollDirection: Axis.horizontal,
-      itemCount: storiesData.stories.length,
+      itemCount: storiesData.length,
       itemBuilder: (context, i) => StoryItem(
-        id: stories[i].id,
-        images: stories[i].images,
-        profileImageUrl: stories[i].profileImage,
-        name: stories[i].title,
+        id: storiesData[i].id,
       ),
     );
   }
