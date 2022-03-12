@@ -26,7 +26,10 @@ class StoryItem extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          Text(story.title)
+          Text(
+            story.title,
+            style: Theme.of(context).textTheme.bodyMedium,
+          )
         ],
       ),
     );
