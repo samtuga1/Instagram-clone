@@ -5,12 +5,14 @@ class UserStory {
   final String title;
   final String profileImage;
   final List<String> images;
+  bool watchedAll;
 
   UserStory({
     required this.id,
     required this.title,
     required this.profileImage,
     required this.images,
+    this.watchedAll = false,
   });
 }
 
@@ -70,5 +72,12 @@ class UserStories with ChangeNotifier {
 
   UserStory findById(id) {
     return _stories.firstWhere((story) => id == story.id);
+  }
+
+  void watches(String id) {
+    _stories.firstWhere((story) {
+      return id == story.id;
+    });
+    notifyListeners();
   }
 }
