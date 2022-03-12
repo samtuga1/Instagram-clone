@@ -11,12 +11,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Text(
-          'Instagram',
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        title:
+            Text('Instagram', style: Theme.of(context).textTheme.displayLarge),
         actions: [
           GestureDetector(
             child: Image.asset(
