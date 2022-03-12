@@ -165,6 +165,7 @@ class _StoryScreenState extends State<StoryScreen> {
           Column(
             children: [
               StoryBars(
+                numberOfStoryImages: images.length,
                 percentWatchedList: percentWatched,
               ),
               Padding(
