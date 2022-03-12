@@ -51,7 +51,7 @@ class _StoryScreenState extends State<StoryScreen> {
             _currentImageIndex++;
             _startWatching();
           } else {
-            Navigator.pop(context);
+            Navigator.of(context).pop(true);
           }
         }
       });
