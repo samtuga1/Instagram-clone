@@ -87,12 +87,11 @@ class _StoryScreenState extends State<StoryScreen> {
     }
   }
 
-  bool watchedLastStory() {
+  Object? watchedLastStory() {
     if (_currentImageIndex == images.length - 1) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   @override
