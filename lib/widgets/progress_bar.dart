@@ -10,7 +10,7 @@ class ProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return LinearPercentIndicator(
       barRadius: const Radius.circular(10),
-      lineHeight: 3,
+      lineHeight: 2,
       percent: percentWatched,
       progressColor: Colors.grey[400],
       backgroundColor: Colors.grey[600],
