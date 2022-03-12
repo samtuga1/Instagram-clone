@@ -38,6 +38,7 @@ class _StoryItemState extends State<StoryItem> {
             child: StoryItemContainer(
               watchedAllStories: widget.watchedAll,
               profileImageUrl: story.profileImage,
+              id: story.id,
             ),
           ),
           const SizedBox(
