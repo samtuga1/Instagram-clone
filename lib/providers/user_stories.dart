@@ -5,14 +5,12 @@ class UserStory {
   final String title;
   final String profileImage;
   final List<String> images;
-  bool watchedAll;
 
   UserStory({
     required this.id,
     required this.title,
     required this.profileImage,
     required this.images,
-    this.watchedAll = false,
   });
 }
 
