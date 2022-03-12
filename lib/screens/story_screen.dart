@@ -53,8 +53,7 @@ class _StoryScreenState extends State<StoryScreen> {
             _currentImageIndex++;
             _startWatching();
           } else {
-            Navigator.of(context).pop();
-            story.watchedAll = true;
+            Navigator.of(context).pop(true);
           }
         }
       });
@@ -88,11 +87,11 @@ class _StoryScreenState extends State<StoryScreen> {
     }
   }
 
-  void watchedLastStory() {
+  bool watchedLastStory() {
     if (_currentImageIndex == images.length - 1) {
-      story.watchedAll = true;
+      return true;
     } else {
-      story.watchedAll = false;
+      return false;
     }
   }
 
@@ -181,7 +180,7 @@ class _StoryScreenState extends State<StoryScreen> {
                         IconButton(
                           color: Colors.white,
                           onPressed: () {
-                            Navigator.of(context).pop();
+                            Navigator.of(context).pop(watchedLastStory());
                           },
                           icon: const Icon(
                             Icons.close,
