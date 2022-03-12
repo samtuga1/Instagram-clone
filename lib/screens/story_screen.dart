@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:instagram_clone/providers/user_stories.dart';
+import 'package:instagram_clone/providers/user_stories.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/widgets/story_bars.dart';
@@ -52,7 +53,8 @@ class _StoryScreenState extends State<StoryScreen> {
             _currentImageIndex++;
             _startWatching();
           } else {
-            Navigator.of(context).pop(true);
+            Navigator.of(context).pop();
+            story.watchedAll = true;
           }
         }
       });
@@ -86,11 +88,11 @@ class _StoryScreenState extends State<StoryScreen> {
     }
   }
 
-  bool watchedLastStory() {
+  void watchedLastStory() {
     if (_currentImageIndex == images.length - 1) {
-      return true;
+      story.watchedAll = true;
     } else {
-      return false;
+      story.watchedAll = false;
     }
   }
 
@@ -179,7 +181,7 @@ class _StoryScreenState extends State<StoryScreen> {
                         IconButton(
                           color: Colors.white,
                           onPressed: () {
-                            Navigator.of(context).pop(watchedLastStory());
+                            Navigator.of(context).pop();
                           },
                           icon: const Icon(
                             Icons.close,
