@@ -9,7 +9,7 @@ class StoryItemContainer extends StatelessWidget {
   }) : super(key: key);
 
   final String profileImageUrl;
-  final bool watchedAllStories;
+  final Object? watchedAllStories;
 
   @override
   Widget build(BuildContext context) {
