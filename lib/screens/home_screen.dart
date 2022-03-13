@@ -6,42 +6,45 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title:
-            Text('Instagram', style: Theme.of(context).textTheme.displayLarge),
-        actions: [
-          GestureDetector(
-            child: Image.asset(
-              'assets/icons/add.png',
-              scale: 2.4,
+    return Column(
+      children: [
+        AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text('Instagram',
+              style: Theme.of(context).textTheme.displayLarge),
+          actions: [
+            GestureDetector(
+              child: Image.asset(
+                'assets/icons/add.png',
+                scale: 2.4,
+              ),
             ),
-          ),
-          GestureDetector(
-            child: Image.asset(
-              'assets/icons/favorite.png',
-              scale: 1,
+            GestureDetector(
+              child: Image.asset(
+                'assets/icons/favorite.png',
+                scale: 1,
+              ),
             ),
-          ),
-          GestureDetector(
-            child: Image.asset(
-              'assets/icons/message.png',
-              scale: 1,
+            GestureDetector(
+              child: Image.asset(
+                'assets/icons/message.png',
+                scale: 1,
+              ),
             ),
+          ],
+        ),
+        Expanded(
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 88,
+                child: StoriesGrid(),
+              ),
+            ],
           ),
-        ],
-      ),
-      body: ListView(
-        children: [
-          SizedBox(
-            height: 88,
-            child: StoriesGrid(),
-          ),
-        ],
-      ),
+        )
+      ],
     );
   }
 }
