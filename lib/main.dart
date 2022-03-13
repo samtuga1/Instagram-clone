@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/screens/pages_screen.dart';
 import './providers/user_stories.dart';
 import './screens/story_screen.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,7 @@ void main() {
       routes: {
         StoryScreen.id: (ctx) => const StoryScreen(),
       },
-      home: const HomeScreen(),
+      home: const PagesSceen(),
     ),
   ));
 }
