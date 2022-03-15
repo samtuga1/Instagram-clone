@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/stories_grid.dart';
+import '../widgets/user_post_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
       children: [
         AppBar(
           backgroundColor: Colors.white,
-          elevation: 0,
+          //elevation: 1,
           title: Text('Instagram',
               style: Theme.of(context).textTheme.displayLarge),
           actions: [
@@ -34,15 +35,14 @@ class HomeScreen extends StatelessWidget {
             ),
           ],
         ),
-        Expanded(
-          child: ListView(
-            children: [
-              SizedBox(
-                height: 88,
-                child: StoriesGrid(),
-              ),
-            ],
+        ListView(children: [
+          SizedBox(
+            height: 96,
+            child: StoriesGrid(),
           ),
+        ]),
+        Expanded(
+          child: UserPostItem(),
         )
       ],
     );
