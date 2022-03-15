@@ -9,17 +9,17 @@ class PersonalStoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       ClipRRect(
-        borderRadius: BorderRadius.circular(26),
+        borderRadius: BorderRadius.circular(30),
         child: Image.network(
           profileImage,
-          width: 50,
-          height: 50,
+          width: 56,
+          height: 56,
           fit: BoxFit.cover,
         ),
       ),
       Positioned(
-        left: 32,
-        top: 29,
+        left: 37,
+        top: 34,
         child: Container(
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
