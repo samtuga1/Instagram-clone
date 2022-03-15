@@ -37,11 +37,11 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
             },
             child: OutlineGradientButton(
               child: SizedBox(
-                height: 50,
-                width: 50,
+                height: 60,
+                width: 60,
                 child: Center(
                   child: CircleAvatar(
-                    radius: 21.2,
+                    radius: 26,
                     backgroundImage: NetworkImage(widget.profileImageUrl),
                   ),
                 ),
