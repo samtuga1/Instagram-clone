@@ -7,7 +7,8 @@ class PersonalStoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
+    return Stack(
+      children: [
       ClipRRect(
         borderRadius: BorderRadius.circular(30),
         child: Image.network(
