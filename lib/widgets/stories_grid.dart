@@ -10,6 +10,7 @@ class StoriesGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     final storiesData = Provider.of<UserStories>(context).stories;
     return ListView.builder(
+      shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemCount: storiesData.length,
       itemBuilder: (context, i) => StoryItem(
