@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/providers/user.dart';
 import 'package:instagram_clone/screens/home_screen.dart';
+import 'package:provider/provider.dart';
+import '../widgets/user_image_container.dart';
 
 class PagesSceen extends StatefulWidget {
   const PagesSceen({Key? key}) : super(key: key);
@@ -9,7 +12,13 @@ class PagesSceen extends StatefulWidget {
 }
 
 class _PagesSceenState extends State<PagesSceen> {
-  List _pages = [HomeScreen(), Text('Hi'), Text('Hi'), Text('Hi'), Text('Hi')];
+  final List _pages = const [
+    HomeScreen(),
+    Text('Hi'),
+    Text('Hi'),
+    Text('Hi'),
+    Text('Hi'),
+  ];
 
   int _selectedIndex = 0;
 
@@ -66,13 +75,13 @@ class _PagesSceenState extends State<PagesSceen> {
               scale: 1.1,
             ),
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             label: 'Home',
-            icon: CircleAvatar(
-              radius: 11,
-            ),
-          ),
-        ],
+            icon: ChangeNotifierProvider(
+              create: ((context) => UserItem()),
+              child: UserImageContainer(),
+          )
+          )],
       ),
     );
   }
