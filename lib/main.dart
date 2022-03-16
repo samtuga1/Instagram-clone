@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:instagram_clone/screens/pages_screen.dart';
 import './providers/user_stories.dart';
 import './screens/story_screen.dart';
 import 'package:provider/provider.dart';
-import './screens/home_screen.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -15,23 +15,12 @@ void main() {
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: const TextTheme(
-          displayLarge: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Norican',
-            fontSize: 35,
+        textTheme: TextTheme(
+          bodySmall: GoogleFonts.poppins(
+            textStyle: const TextStyle(fontWeight: FontWeight.w300),
           ),
-          bodySmall: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Roboto',
-            fontWeight: FontWeight.w300,
-            fontSize: 13,
-          ),
-          bodyMedium: TextStyle(
-            color: Colors.black,
-            fontFamily: 'Roboto',
-            fontWeight: FontWeight.w400,
-            fontSize: 13,
+          bodyMedium: GoogleFonts.poppins(
+            textStyle: const TextStyle(fontWeight: FontWeight.w400),
           ),
         ),
       ),
