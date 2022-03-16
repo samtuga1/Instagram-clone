@@ -28,7 +28,7 @@ class StoryItem extends StatelessWidget {
           ),
           Text(
             story.title,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context).textTheme.bodySmall,
           )
         ],
       ),
