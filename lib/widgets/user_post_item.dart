@@ -15,8 +15,7 @@ class UserPostItem extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: userPost.users.length,
       itemBuilder: (context, i) {
-        // final singleUserPost = userPost.users
-        //     .firstWhere((post) => post.id == userPost.users[i].id);
+        // final singleUserPost = userPost.users.firstWhere((post) => post.id == userPost.users[i].id);
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -31,11 +30,11 @@ class UserPostItem extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 8.0),
                         child: CircleAvatar(
                           backgroundImage:
-                              NetworkImage(userPost.users[i].profileImage),
+                              NetworkImage(userPost.users[i].profileImage!),
                         ),
                       ),
                       Text(
-                        userPost.users[i].name,
+                        userPost.users[i].name!,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
@@ -47,7 +46,7 @@ class UserPostItem extends StatelessWidget {
             SizedBox(
               height: 330,
               child: Image.network(
-                userPost.users[i].postImage,
+                userPost.users[i].postImage!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -61,15 +60,16 @@ class UserPostItem extends StatelessWidget {
                       const SizedBox(
                         width: 10,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          //userPost.switchFav(singleUserPost.id);
-                        },
-                        child: const Icon(
-                            // singleUserPost.isFavorite
-                            //   ? Icons.favorite
-                            // :
-                            Icons.favorite_border),
+                      Consumer<UserPost>(
+                        builder: (context, post, child) => GestureDetector(
+                          onTap: () {
+                            // userPost.switchFav(singleUserPost.id);
+                            post.switchFav(userPost.users[i].id, i);
+                          },
+                          child: Icon(post.isFavorite
+                              ? Icons.favorite
+                              : Icons.favorite_border),
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -105,7 +105,7 @@ class UserPostItem extends StatelessWidget {
                     ),
                     CircleAvatar(
                       backgroundImage:
-                          NetworkImage(userPost.users[i].profileImage),
+                          NetworkImage(userPost.users[i].profileImage!),
                       radius: 10,
                     ),
                     const SizedBox(
