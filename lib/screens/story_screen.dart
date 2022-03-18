@@ -106,93 +106,92 @@ class _StoryScreenState extends State<StoryScreen> {
       onTapDown: (details) => _onTapDown(details),
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: Stack(children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10, bottom: 18),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(7),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(7),
-                      child: Image.network(
-                        images[_currentImageIndex],
-                        fit: BoxFit.fitHeight,
+        body: SafeArea(
+          child: Stack(children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10, bottom: 18),
+                    child: Hero(
+                      tag: 'post-Image',
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(7),
+                        child: Image.network(
+                          images[_currentImageIndex],
+                          fit: BoxFit.fitHeight,
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-              const StoryScreenTextField()
-            ],
-          ),
-          Column(
-            children: [
-              StoryBars(
-                numberOfStoryImages: images.length,
-                percentWatchedList: percentWatched,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
-                child: Row(
-                  children: [
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(story.profileImage),
-                        ),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        Text(
-                          story.title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 6,
-                        ),
-                        const Text(
-                          '23h',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Row(
-                      children: [
-                        IconButton(
-                          color: Colors.white,
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.more_horiz,
-                          ),
-                        ),
-                        IconButton(
-                          color: Colors.white,
-                          onPressed: () {
-                            Navigator.of(context).pop(watchedLastStory());
-                          },
-                          icon: const Icon(
-                            Icons.close,
-                          ),
-                        )
-                      ],
-                    )
-                  ],
+                const StoryScreenTextField()
+              ],
+            ),
+            Column(
+              children: [
+                StoryBars(
+                  numberOfStoryImages: images.length,
+                  percentWatchedList: percentWatched,
                 ),
-              ),
-            ],
-          ),
-        ]),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5.0, left: 5, right: 5),
+                  child: Row(
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: NetworkImage(story.profileImage),
+                          ),
+                          const SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            story.title,
+                            style: const TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 6,
+                          ),
+                          const Text(
+                            '23h',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Row(
+                        children: [
+                          IconButton(
+                            color: Colors.white,
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.more_horiz,
+                            ),
+                          ),
+                          IconButton(
+                            color: Colors.white,
+                            onPressed: () {
+                              Navigator.of(context).pop(watchedLastStory());
+                            },
+                            icon: const Icon(
+                              Icons.close,
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ]),
+        ),
       ),
     );
   }
