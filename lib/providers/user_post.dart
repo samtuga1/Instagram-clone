@@ -22,13 +22,7 @@ class UserPost with ChangeNotifier {
     user.isFavorite = !user.isFavorite;
     notifyListeners();
     print(user.isFavorite);
-    // if (UserPosts()._users[i].id == id) {
-    //   isFavorite = !isFavorite;
-    //   notifyListeners();
-    // } else {
-    //   print('not');
-    //   print(UserPost().id);
-    // }
+    
   }
 }
 
