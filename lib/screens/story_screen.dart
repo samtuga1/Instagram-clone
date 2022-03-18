@@ -29,7 +29,7 @@ class _StoryScreenState extends State<StoryScreen> {
     final storyId = ModalRoute.of(context)?.settings.arguments
         as String; //Fetches the id from StoryItem.dart
     story = Provider.of<UserStories>(context).findById(storyId);
-    images = story.images;
+    images = story.images!;
 
     for (int i = 0; i < images.length; i++) {
       percentWatched.add(0);
@@ -142,13 +142,13 @@ class _StoryScreenState extends State<StoryScreen> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundImage: NetworkImage(story.profileImage),
+                            backgroundImage: NetworkImage(story.profileImage!),
                           ),
                           const SizedBox(
                             width: 6,
                           ),
                           Text(
-                            story.title,
+                            story.title!,
                             style: const TextStyle(
                               color: Colors.white,
                             ),
