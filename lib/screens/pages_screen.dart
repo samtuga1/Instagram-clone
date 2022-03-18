@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/providers/user.dart';
 import 'package:instagram_clone/screens/home_screen.dart';
+import 'package:instagram_clone/screens/profile_screen.dart';
+import 'package:instagram_clone/screens/reels_screen.dart';
+import 'package:instagram_clone/screens/search_screen.dart';
+import 'package:instagram_clone/screens/shop_screen.dart';
 import 'package:provider/provider.dart';
+import '../widgets/app_bar.dart';
 import '../widgets/user_image_container.dart';
 
 class PagesSceen extends StatefulWidget {
@@ -14,10 +19,10 @@ class PagesSceen extends StatefulWidget {
 class _PagesSceenState extends State<PagesSceen> {
   final List _pages = const [
     HomeScreen(),
-    Text('Hi'),
-    Text('Hi'),
-    Text('Hi'),
-    Text('Hi'),
+    SearchScreen(),
+    ReelsScreen(),
+    ShopScreen(),
+    ProfileScreen()
   ];
 
   int _selectedIndex = 0;
@@ -32,7 +37,15 @@ class _PagesSceenState extends State<PagesSceen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: _pages[_selectedIndex],
+      body: Column(
+        children: [
+          Visibility(
+            visible: _selectedIndex == 0 ? true : false,
+            child: HomeScreenBar(),
+          ),
+          _pages[_selectedIndex],
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: _selectedIndex,
@@ -76,12 +89,12 @@ class _PagesSceenState extends State<PagesSceen> {
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Home',
-            icon: ChangeNotifierProvider(
-              create: ((context) => UserItem()),
-              child: UserImageContainer(),
-          )
-          )],
+              label: 'Home',
+              icon: ChangeNotifierProvider(
+                create: ((context) => UserItem()),
+                child: UserImageContainer(),
+              ))
+        ],
       ),
     );
   }
