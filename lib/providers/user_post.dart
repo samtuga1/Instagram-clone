@@ -10,13 +10,13 @@ class UserPost {
   final int likes;
 
   UserPost({
-    required this.likes,
-    required this.profileImage,
-    required this.id,
-    required this.name,
-    required this.postImage,
-    this.isFavorite = false,
-  });
+      required this.likes,
+      required this.profileImage,
+      required this.id,
+      required this.name,
+      required this.postImage,
+      required this.isFavorite,
+      });
 }
 
 class UserPosts with ChangeNotifier {
@@ -26,39 +26,52 @@ class UserPosts with ChangeNotifier {
       id: 'm1',
       name: 'Samuel',
       profileImage:
-          'https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg',
+          'https://avatars.githubusercontent.com/u/79772304?v=4',
       postImage:
-          'https://ichef.bbci.co.uk/news/976/cpsprodpb/13F00/production/_95146618_bills.jpg',
+          'https://user-images.githubusercontent.com/79772304/154733047-5dcb4c0d-4ff7-497e-9a66-28c2b765847a.png',
+      isFavorite: false,
     ),
     UserPost(
       likes: 32,
       id: 'm1',
       name: 'Samuel',
       profileImage:
-          'https://images.ctfassets.net/hrltx12pl8hq/3AnnkVqrlhrqb9hjlMBzKX/693a8e5d40b4b6c55a7673ca4c807eef/Girl-Stock?fit=fill&w=480&h=270',
+          'https://avatars.githubusercontent.com/u/79772304?v=4',
       postImage:
-          'https://images.ctfassets.net/hrltx12pl8hq/3AnnkVqrlhrqb9hjlMBzKX/693a8e5d40b4b6c55a7673ca4c807eef/Girl-Stock?fit=fill&w=480&h=270',
+          'https://user-images.githubusercontent.com/79772304/152646045-a3ffc16c-0e11-4606-9f17-52326fe9a7da.png',
+      isFavorite: false,
     ),
     UserPost(
       likes: 32,
       id: 'm1',
       name: 'Samuel',
       profileImage:
-          'https://static.independent.co.uk/2020/09/18/11/stock%20model%201.jpg?quality=75&width=1200&auto=webp',
+          'https://avatars.githubusercontent.com/u/79772304?v=4',
       postImage:
-          'https://static.independent.co.uk/2020/09/18/11/stock%20model%201.jpg?quality=75&width=1200&auto=webp',
+          'https://user-images.githubusercontent.com/79772304/150697981-a080220c-21ee-4b24-b10c-8b3371c8991d.png',
+      isFavorite: false,
     ),
-    UserPost(
-      likes: 32,
-      id: 'm1',
-      name: 'Samuel',
-      profileImage:
-          'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/04/14/Pictures/_2596589e-20ee-11e7-beb7-f1cbdf0743d8.jpg',
-      postImage:
-          'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/04/14/Pictures/_2596589e-20ee-11e7-beb7-f1cbdf0743d8.jpg',
-    ),
+    // UserPost(
+    //   likes: 32,
+    //   id: 'm1',
+    //   name: 'Samuel',
+    //   profileImage:
+    //       'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/04/14/Pictures/_2596589e-20ee-11e7-beb7-f1cbdf0743d8.jpg',
+    //   postImage:
+    //       'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/04/14/Pictures/_2596589e-20ee-11e7-beb7-f1cbdf0743d8.jpg',
+    //   isFavorite: false,
+    // ),
   ];
   List<UserPost> get users {
     return [..._users];
   }
+
+  // void switchFav(String id) {
+  //   final user = _users.firstWhere((userPost) => userPost.id == id);
+  //   if (user.id == id) {
+  //     user.isFavorite = !user.isFavorite;
+  //     notifyListeners();
+  //   }
+  //   notifyListeners();
+  // }
 }
