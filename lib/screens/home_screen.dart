@@ -11,24 +11,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const HomeScreenBar(),
-        Expanded(
-          child: ListView(
-            children: [
-              const SizedBox(
-                height: 105,
-                child: StoriesGrid(),
-              ),
-              ChangeNotifierProvider(
-                create: ((context) => UserPosts()),
-                child: const UserPostItem(),
-              )
-            ],
+    return Expanded(
+      child: ListView(
+        children: [
+          const SizedBox(
+            height: 105,
+            child: StoriesGrid(),
           ),
-        )
-      ],
+          ChangeNotifierProvider(
+            create: ((context) => UserPosts()),
+            child: const UserPostItem(),
+          ),
+        ],
+      ),
     );
   }
 }
