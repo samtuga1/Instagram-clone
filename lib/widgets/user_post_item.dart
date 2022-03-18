@@ -64,7 +64,7 @@ class UserPostItem extends StatelessWidget {
                         builder: (context, post, child) => GestureDetector(
                           onTap: () {
                             // userPost.switchFav(singleUserPost.id);
-                            post.switchFav(userPost.users[i].id, i);
+                            post.switchFav(userPost.users[i].id);
                           },
                           child: Icon(post.isFavorite
                               ? Icons.favorite
