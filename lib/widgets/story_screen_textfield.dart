@@ -33,12 +33,14 @@ class StoryScreenTextField extends StatelessWidget {
         const Icon(
           Icons.favorite_outline,
           color: Colors.white,
+          size: 27,
         ),
         const SizedBox(
           width: 20,
         ),
-        const Icon(
-          Icons.message_outlined,
+        Image.asset(
+          'assets/icons/send.png',
+          scale: 1.1,
           color: Colors.white,
         ),
         const SizedBox(
