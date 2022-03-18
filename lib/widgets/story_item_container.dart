@@ -41,8 +41,18 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
                 width: 60,
                 child: Center(
                   child: CircleAvatar(
+                    child: Hero(
+                      tag: 'post-Image',
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(26),
+                        child: Image.network(
+                          widget.profileImageUrl,
+                          fit: BoxFit.cover,
+                          height: 55,
+                        ),
+                      ),
+                    ),
                     radius: 26,
-                    backgroundImage: NetworkImage(widget.profileImageUrl),
                   ),
                 ),
               ),
