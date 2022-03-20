@@ -19,6 +19,7 @@ class StoryItemContainer extends StatefulWidget {
 }
 
 class _StoryItemContainerState extends State<StoryItemContainer> {
+  int heroIndexCount = 1;
   @override
   Widget build(BuildContext context) {
     return widget.id == 'm1'
@@ -28,7 +29,7 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
         : GestureDetector(
             onTap: () {
               Navigator.of(context)
-                  .pushNamed(StoryScreen.id, arguments: widget.id)
+                  .pushNamed(StoryScreen.id, arguments: [widget.id, heroIndexCount])
                   .then((watchedEverything) {
                 setState(() {
                   widget.watchedAllStories = watchedEverything;
@@ -42,7 +43,7 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
                 child: Center(
                   child: CircleAvatar(
                     child: Hero(
-                      tag: 'post-Image',
+                      tag: 'post-Image$heroIndexCount',
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(26),
                         child: Image.network(
