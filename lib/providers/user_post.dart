@@ -38,7 +38,7 @@ class UserPosts with ChangeNotifier {
       name: 'Samuel',
       profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
       postImage:
-          'https://user-images.githubusercontent.com/79772304/154733047-5dcb4c0d-4ff7-497e-9a66-28c2b765847a.png',
+          'https://images.pexels.com/photos/11334018/pexels-photo-11334018.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
     UserPost(
       likes: 32,
@@ -46,7 +46,7 @@ class UserPosts with ChangeNotifier {
       name: 'Samuel',
       profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
       postImage:
-          'https://user-images.githubusercontent.com/79772304/152646045-a3ffc16c-0e11-4606-9f17-52326fe9a7da.png',
+          'https://images.pexels.com/photos/9802281/pexels-photo-9802281.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
     UserPost(
       likes: 32,
@@ -54,26 +54,26 @@ class UserPosts with ChangeNotifier {
       name: 'Samuel',
       profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
       postImage:
-          'https://user-images.githubusercontent.com/79772304/150697981-a080220c-21ee-4b24-b10c-8b3371c8991d.png',
+          'https://images.pexels.com/photos/11362875/pexels-photo-11362875.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
-    // UserPost(
-    //   likes: 32,
-    //   id: 'm1',
-    //   name: 'Samuel',
-    //   profileImage:
-    //       'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/04/14/Pictures/_2596589e-20ee-11e7-beb7-f1cbdf0743d8.jpg',
-    //   postImage:
-    //       'https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/04/14/Pictures/_2596589e-20ee-11e7-beb7-f1cbdf0743d8.jpg',
-    //   isFavorite: false,
-    // ),
+    UserPost(
+      likes: 32,
+      id: 'm3',
+      name: 'Samuel',
+      profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
+      postImage:
+          'https://images.pexels.com/photos/9334434/pexels-photo-9334434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    ),
+    UserPost(
+      likes: 32,
+      id: 'm3',
+      name: 'Samuel',
+      profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
+      postImage:
+          'https://images.pexels.com/photos/11254088/pexels-photo-11254088.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    ),
   ];
   List<UserPost> get users {
     return [..._users];
   }
-
-  // void switchFav(String id) {
-  //   final user = _users.firstWhere((userPost) => userPost.id == id);
-  //   user.isFavorite = !user.isFavorite;
-  //   notifyListeners();
-  // }
 }
