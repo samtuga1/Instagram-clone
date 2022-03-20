@@ -47,7 +47,7 @@ class UserPosts with ChangeNotifier {
     ),
     UserPost(
       likes: 21,
-      id: 'm3',
+      id: 'm4',
       name: 'Elvis',
       profileImage: 'https://images.pexels.com/photos/10144357/pexels-photo-10144357.png?auto=compress&cs=tinysrgb&dpr=1&w=500',
       postImage:
@@ -55,7 +55,7 @@ class UserPosts with ChangeNotifier {
     ),
     UserPost(
       likes: 2,
-      id: 'm3',
+      id: 'm5',
       name: 'Black',
       profileImage: 'https://images.pexels.com/photos/11129005/pexels-photo-11129005.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       postImage:
