@@ -41,7 +41,7 @@ class _PagesSceenState extends State<PagesSceen> {
         children: [
           Visibility(
             visible: _selectedIndex == 0 ? true : false,
-            child: HomeScreenBar(),
+            child: const HomeScreenBar(),
           ),
           _pages[_selectedIndex],
         ],
