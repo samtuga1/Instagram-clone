@@ -14,7 +14,7 @@ class StoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final story = Provider.of<UserStories>(context).findById(id);
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Column(
         children: [
           GestureDetector(
@@ -29,6 +29,10 @@ class StoryItem extends StatelessWidget {
           Text(
             story.title!,
             style: Theme.of(context).textTheme.bodySmall,
+          ),
+          const Divider(
+            thickness: 2,
+            color: Colors.amber,
           )
         ],
       ),
