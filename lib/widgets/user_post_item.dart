@@ -44,6 +44,7 @@ class UserPostItem extends StatelessWidget {
               ),
             ),
             SizedBox(
+              width: double.infinity,
               height: 330,
               child: Image.network(
                 userPost.users[i].postImage!,
@@ -61,14 +62,13 @@ class UserPostItem extends StatelessWidget {
                         width: 10,
                       ),
                       Consumer<UserPost>(
-                        builder: (context, post, child) => GestureDetector(
+                        builder: (_, post, child) => GestureDetector(
                           onTap: () {
-                            
                             post.switchFav(userPost.users[i].id);
                           },
-                          child: Icon(post.isFavorite
+                          child: Icon(post.favoriteStatus == true
                               ? Icons.favorite
-                              : Icons.favorite_border),
+                              : Icons.favorite_outline),
                         ),
                       ),
                       const SizedBox(
@@ -111,16 +111,19 @@ class UserPostItem extends StatelessWidget {
                     const SizedBox(
                       width: 8,
                     ),
-                    const Text(
+                    Text(
                       'Add a comment...',
-                      style: TextStyle(color: Colors.grey),
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall
+                          ?.copyWith(color: Colors.grey),
                     ),
                   ],
                 ),
               ],
             ),
             const SizedBox(
-              height: 15,
+              height: 25,
             )
           ],
         );
