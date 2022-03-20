@@ -16,24 +16,37 @@ class HomeScreenBar extends StatelessWidget {
         ),
       ),
       actions: [
-        GestureDetector(
-          child: Image.asset(
-            'assets/icons/add.png',
-            scale: 1,
-          ),
-        ),
-        GestureDetector(
-          child: Image.asset(
-            'assets/icons/favorite.png',
-            scale: 1,
-          ),
-        ),
-        GestureDetector(
-          child: Image.asset(
-            'assets/icons/message.png',
-            scale: 1,
-          ),
-        ),
+        Row(
+          children: [
+            GestureDetector(
+              child: Image.asset(
+                'assets/icons/add.png',
+                scale: 1,
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            GestureDetector(
+              child: Image.asset(
+                'assets/icons/favorite.png',
+                scale: 1,
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            GestureDetector(
+              child: Image.asset(
+                'assets/icons/message.png',
+                scale: 1,
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+          ],
+        )
       ],
     );
   }
