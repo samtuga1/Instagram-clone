@@ -17,17 +17,6 @@ class UserPost with ChangeNotifier {
     this.postImage,
     this.isFavorite = false,
   });
-  void switchFav(String? id) {
-    bool fav = isFavorite;
-    UserPost user = UserPosts()._users.firstWhere((post) => post.id == id);
-    fav = !fav;
-    notifyListeners();
-    print(user.isFavorite);
-  }
-
-  bool get favoriteStatus {
-    return isFavorite;
-  }
 }
 
 class UserPosts with ChangeNotifier {
