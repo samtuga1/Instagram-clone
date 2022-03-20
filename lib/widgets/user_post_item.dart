@@ -64,7 +64,7 @@ class UserPostItem extends StatelessWidget {
                       Consumer<UserPost>(
                         builder: (_, post, child) => GestureDetector(
                           onTap: () {
-                            post.switchFav(userPost.users[i].id);
+                            //Update the likes count 
                           },
                           child: const Icon(Icons.favorite_outline),
                         ),
