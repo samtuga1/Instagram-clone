@@ -7,8 +7,7 @@ import './screens/story_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
+  runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
         create: (context) => UserStories(),
@@ -25,7 +24,7 @@ void main() {
             textStyle: const TextStyle(fontWeight: FontWeight.w300),
           ),
           bodyMedium: GoogleFonts.poppins(
-            textStyle: const TextStyle(fontWeight: FontWeight.w400),
+            textStyle: const TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
       ),
