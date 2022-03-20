@@ -15,7 +15,6 @@ class UserPostItem extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: userPost.users.length,
       itemBuilder: (context, i) {
-        // final singleUserPost = userPost.users.firstWhere((post) => post.id == userPost.users[i].id);
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
