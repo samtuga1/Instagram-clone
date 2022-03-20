@@ -26,8 +26,10 @@ class _StoryScreenState extends State<StoryScreen> {
   //This is where my story timer starts to render(In didChangeDependencies which builds just after initState builds)
   @override
   void didChangeDependencies() {
-    final storyId = ModalRoute.of(context)?.settings.arguments
-        as String; //Fetches the id from StoryItem.dart
+    final args = ModalRoute.of(context)?.settings.arguments
+        as List; //Fetches the id from StoryItem.dart
+    final storyId = args[0];
+    int heroCount = args[1];
     story = Provider.of<UserStories>(context).findById(storyId);
     images = story.images!;
 
