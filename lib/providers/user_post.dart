@@ -33,7 +33,7 @@ class UserPost with ChangeNotifier {
 class UserPosts with ChangeNotifier {
   final List<UserPost> _users = [
     UserPost(
-      likes: 32,
+      likes: 790,
       id: 'm1',
       name: 'Samuel',
       profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
@@ -43,32 +43,32 @@ class UserPosts with ChangeNotifier {
     UserPost(
       likes: 32,
       id: 'm2',
-      name: 'Samuel',
-      profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
+      name: 'Bentil',
+      profileImage: 'https://images.pexels.com/photos/9940538/pexels-photo-9940538.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       postImage:
           'https://images.pexels.com/photos/9802281/pexels-photo-9802281.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
     UserPost(
-      likes: 32,
+      likes: 45,
       id: 'm3',
-      name: 'Samuel',
-      profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
+      name: 'Kelvin',
+      profileImage: 'https://images.pexels.com/photos/5461428/pexels-photo-5461428.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       postImage:
           'https://images.pexels.com/photos/11362875/pexels-photo-11362875.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
     UserPost(
-      likes: 32,
+      likes: 21,
       id: 'm3',
-      name: 'Samuel',
-      profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
+      name: 'Elvis',
+      profileImage: 'https://images.pexels.com/photos/10144357/pexels-photo-10144357.png?auto=compress&cs=tinysrgb&dpr=1&w=500',
       postImage:
           'https://images.pexels.com/photos/9334434/pexels-photo-9334434.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
     UserPost(
-      likes: 32,
+      likes: 2,
       id: 'm3',
-      name: 'Samuel',
-      profileImage: 'https://avatars.githubusercontent.com/u/79772304?v=4',
+      name: 'Black',
+      profileImage: 'https://images.pexels.com/photos/11129005/pexels-photo-11129005.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       postImage:
           'https://images.pexels.com/photos/11254088/pexels-photo-11254088.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
     ),
