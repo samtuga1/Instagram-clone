@@ -66,9 +66,7 @@ class UserPostItem extends StatelessWidget {
                           onTap: () {
                             post.switchFav(userPost.users[i].id);
                           },
-                          child: Icon(post.favoriteStatus == true
-                              ? Icons.favorite
-                              : Icons.favorite_outline),
+                          child: const Icon(Icons.favorite_outline),
                         ),
                       ),
                       const SizedBox(
