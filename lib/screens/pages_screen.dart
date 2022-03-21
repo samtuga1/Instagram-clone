@@ -36,7 +36,7 @@ class _PagesSceenState extends State<PagesSceen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: Column(
         children: [
           Visibility(
