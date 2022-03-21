@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:instagram_clone/providers/user_post.dart';
-import 'package:instagram_clone/screens/pages_screen.dart';
+import '../providers/user_post.dart';
+import '../screens/pages_screen.dart';
 import './providers/user_stories.dart';
 import './screens/story_screen.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +19,7 @@ void main() {
     child: MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
           labelSmall: GoogleFonts.poppins(
             textStyle: const TextStyle(fontWeight: FontWeight.w500),
