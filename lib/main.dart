@@ -20,6 +20,9 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: TextTheme(
+          labelSmall: GoogleFonts.poppins(
+            textStyle: const TextStyle(fontWeight: FontWeight.w500),
+          ),
           bodySmall: GoogleFonts.poppins(
             textStyle: const TextStyle(fontWeight: FontWeight.w300),
           ),
