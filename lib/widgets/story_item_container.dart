@@ -53,20 +53,6 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
                       ),
                     ),
                   ),
-                  // CircleAvatar(
-                  //   child: Hero(
-                  //     tag: widget.id,
-                  //     child: ClipRRect(
-                  //       borderRadius: BorderRadius.circular(26),
-                  //       child: Image.network(
-                  //         widget.profileImageUrl,
-                  //         fit: BoxFit.contain,
-                  //         //height: 55,
-                  //       ),
-                  //     ),
-                  //   ),
-                  //   radius: 26,
-                  // ),
                 ),
               ),
               gradient: LinearGradient(
