@@ -64,7 +64,7 @@ class UserStories with ChangeNotifier {
           'https://images.pexels.com/photos/2870928/pexels-photo-2870928.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
       images: [
         'https://images.pexels.com/photos/11354017/pexels-photo-11354017.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        'https://ichef.bbci.co.uk/news/976/cpsprodpb/13F00/production/_95146618_bills.jpg',
+        'https://images.pexels.com/photos/10492003/pexels-photo-10492003.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         'https://images.pexels.com/photos/4090269/pexels-photo-4090269.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
       ],
     ),
