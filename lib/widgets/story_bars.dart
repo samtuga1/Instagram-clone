@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/widgets/progress_bar.dart';
 
 class StoryBars extends StatelessWidget {
-  StoryBars(
+ StoryBars(
       {Key? key,
       required this.percentWatchedList,
       required this.numberOfStoryImages})
       : super(key: key);
   final int numberOfStoryImages;
-  List<double> percentWatchedList = [];
+List<double> percentWatchedList = [];
 
   @override
   Widget build(BuildContext context) {
