@@ -144,13 +144,13 @@ class _StoryScreenState extends State<StoryScreen> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundImage: NetworkImage(story.profileImage!),
+                            backgroundImage: NetworkImage(story.profileImage),
                           ),
                           const SizedBox(
                             width: 6,
                           ),
                           Text(
-                            story.title!,
+                            story.title,
                             style: const TextStyle(
                               color: Colors.white,
                             ),
