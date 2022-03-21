@@ -14,7 +14,7 @@ class StoriesGrid extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: storiesData.length,
       itemBuilder: (context, i) => StoryItem(
-        id: storiesData[i].id!,
+        id: storiesData[i].id,
       ),
     );
   }
