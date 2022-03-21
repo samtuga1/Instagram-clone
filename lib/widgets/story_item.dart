@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 
 class StoryItem extends StatelessWidget {
   final String id;
-  StoryItem({
+  const StoryItem({
     Key? key,
     required this.id,
   }) : super(key: key);
@@ -19,15 +19,15 @@ class StoryItem extends StatelessWidget {
         children: [
           GestureDetector(
             child: StoryItemContainer(
-              profileImageUrl: story.profileImage!,
-              id: story.id!,
+              profileImageUrl: story.profileImage,
+              id: story.id,
             ),
           ),
           const SizedBox(
             height: 5,
           ),
           Text(
-            story.title!,
+            story.title,
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const Divider(
