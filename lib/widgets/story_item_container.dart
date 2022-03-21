@@ -27,7 +27,9 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
           )
         : GestureDetector(
             onTap: () {
-              Navigator.of(context).pushNamed(StoryScreen.id, arguments: widget.id).then((watchedEverything) {
+              Navigator.of(context)
+                  .pushNamed(StoryScreen.id, arguments: widget.id)
+                  .then((watchedEverything) {
                 setState(() {
                   widget.watchedAllStories = watchedEverything;
                 });
@@ -38,20 +40,33 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
                 height: 60,
                 width: 60,
                 child: Center(
-                  child: CircleAvatar(
-                    child: Hero(
-                      tag: widget.id,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(26),
-                        child: Image.network(
-                          widget.profileImageUrl,
-                          fit: BoxFit.cover,
-                          height: 55,
-                        ),
+                  child: Hero(
+                    tag: widget.id,
+                    child: ClipRRect(
+                      clipBehavior: Clip.antiAlias,
+                      borderRadius: BorderRadius.circular(26),
+                      child: Image.network(
+                        widget.profileImageUrl,
+                        fit: BoxFit.cover,
+                        height: 50,
+                        width: 49.5,
                       ),
                     ),
-                    radius: 26,
                   ),
+                  // CircleAvatar(
+                  //   child: Hero(
+                  //     tag: widget.id,
+                  //     child: ClipRRect(
+                  //       borderRadius: BorderRadius.circular(26),
+                  //       child: Image.network(
+                  //         widget.profileImageUrl,
+                  //         fit: BoxFit.contain,
+                  //         //height: 55,
+                  //       ),
+                  //     ),
+                  //   ),
+                  //   radius: 26,
+                  // ),
                 ),
               ),
               gradient: LinearGradient(
