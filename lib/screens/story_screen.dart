@@ -22,14 +22,14 @@ class _StoryScreenState extends State<StoryScreen> {
   late List<String> images;
   late UserStory story;
   late Timer time;
+  late String id;
 
   //This is where my story timer starts to render(In didChangeDependencies which builds just after initState builds)
   @override
   void didChangeDependencies() {
-    final args = ModalRoute.of(context)?.settings.arguments
-        as List; //Fetches the id from StoryItem.dart
-    final storyId = args[0];
-    int heroCount = args[1];
+    final storyId = ModalRoute.of(context)?.settings.arguments
+        as String; //Fetches the id from StoryItem.dart
+    id = storyId;
     story = Provider.of<UserStories>(context).findById(storyId);
     images = story.images!;
 
@@ -117,7 +117,7 @@ class _StoryScreenState extends State<StoryScreen> {
                   child: Padding(
                     padding: const EdgeInsets.only(top: 10, bottom: 18),
                     child: Hero(
-                      tag: 'post-Image',
+                      tag: id,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(7),
                         child: Image.network(
