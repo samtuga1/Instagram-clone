@@ -63,7 +63,7 @@ class UserPostItem extends StatelessWidget {
                       Consumer<UserPost>(
                         builder: (_, post, child) => GestureDetector(
                           onTap: () {
-                            //Update the likes count 
+                            //Update the likes count
                           },
                           child: const Icon(Icons.favorite_outline),
                         ),
@@ -91,7 +91,7 @@ class UserPostItem extends StatelessWidget {
             Container(
               margin: const EdgeInsets.only(left: 10, top: 10, bottom: 8),
               child: Text('${userPost.users[i].likes} likes',
-                  style: Theme.of(context).textTheme.bodySmall),
+                  style: Theme.of(context).textTheme.labelSmall),
             ),
             Row(
               children: [
