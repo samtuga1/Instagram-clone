@@ -7,9 +7,9 @@ class UserStory {
   final List<String>? images;
 
   UserStory({
-   required this.id,
-   required this.title,
-   required this.profileImage,
+    required this.id,
+    required this.title,
+    required this.profileImage,
     this.images,
   });
 }
@@ -21,10 +21,6 @@ class UserStories with ChangeNotifier {
       title: 'Samuel',
       profileImage:
           'https://iso.500px.com/wp-content/uploads/2015/03/business_cover.jpeg',
-      images: [
-        'https://images.pexels.com/photos/11235613/pexels-photo-11235613.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        'https://images.pexels.com/photos/11289200/pexels-photo-11289200.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      ],
     ),
     UserStory(
       id: 'm2',
