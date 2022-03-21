@@ -19,6 +19,13 @@ class StoryItemContainer extends StatefulWidget {
 }
 
 class _StoryItemContainerState extends State<StoryItemContainer> {
+  Future<String> getData() async {
+    await Future.delayed(
+      const Duration(seconds: 2),
+    );
+    return widget.profileImageUrl;
+  }
+
   @override
   Widget build(BuildContext context) {
     return widget.id == 'm1'
@@ -43,15 +50,27 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
                   child: Hero(
                     tag: widget.id,
                     child: ClipRRect(
-                      clipBehavior: Clip.antiAlias,
-                      borderRadius: BorderRadius.circular(26),
-                      child: Image.network(
-                        widget.profileImageUrl,
-                        fit: BoxFit.cover,
-                        height: 50,
-                        width: 49.5,
-                      ),
-                    ),
+                        clipBehavior: Clip.antiAlias,
+                        borderRadius: BorderRadius.circular(26),
+                        child: FutureBuilder(
+                          future: getData(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
+                            if (snapshot.hasError) {
+                              print(snapshot.error);
+                            } return Image.network(
+                                snapshot.hasData.toString(),
+                                fit: BoxFit.cover,
+                                height: 50,
+                                width: 49.5,
+                              );
+                          },
+                        )),
                   ),
                 ),
               ),
