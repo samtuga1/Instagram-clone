@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 
 class UserStory {
-  final String? id;
-  final String? title;
-  final String? profileImage;
+  final String id;
+  final String title;
+  final String profileImage;
   final List<String>? images;
 
   UserStory({
-    this.id,
-    this.title,
-    this.profileImage,
+   required this.id,
+   required this.title,
+   required this.profileImage,
     this.images,
   });
 }
