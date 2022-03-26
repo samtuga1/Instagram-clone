@@ -19,10 +19,11 @@ class StoryItemContainer extends StatefulWidget {
 }
 
 class _StoryItemContainerState extends State<StoryItemContainer> {
+  
   String loadImage() {
     return widget.profileImageUrl;
   }
-
+//Loads the image here before build() method is called
   @override
   void initState() {
     loadImage();
