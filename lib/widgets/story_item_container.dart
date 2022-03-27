@@ -20,6 +20,7 @@ class StoryItemContainer extends StatefulWidget {
 
 class _StoryItemContainerState extends State<StoryItemContainer> {
   
+  // Method that returns the image url of the profile image
   String loadImage() {
     return widget.profileImageUrl;
   }
