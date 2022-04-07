@@ -24,7 +24,7 @@ class _StoryItemContainerState extends State<StoryItemContainer> {
   String loadImage() {
     return widget.profileImageUrl;
   }
-//Loads the image here before build() method is called
+//Loads the image here before build() method is calle
   @override
   void initState() {
     loadImage();
